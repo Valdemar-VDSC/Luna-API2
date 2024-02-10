@@ -1,0 +1,382 @@
+{
+	"swagger": "2.0",
+	"host": "lunaapi.ga",
+	"schemes": [
+		"http"
+	],
+	"info": {
+		"description": "Luna API",
+		"title": "LunaAPI",
+		"version": "1",
+		"termsOfService": "https://github.com/timdietrich/luna",
+		"contact": {
+			"name": "Dirk",
+			"url": "https://github.com/eurog33k/luna",
+			"email": "api@mydomain.com"
+		}
+	},
+	"basePath": "/api/v1",
+	"paths": {
+		"/Contacts": {
+			"get": {
+				"description": "Get a list of Contacts",
+				"summary": "List Contacts",
+				"externalDocs": {
+					"description": "Find out more",
+					"url": "https://support.bouwsoft.be/manual/api/Content/UseItGroup/API/ApiAlg.htm"
+				},
+				"operationId": "GetContacts",
+				"tags": [
+					"LIST",
+					"GET",
+					"Contacts"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"description": "",
+							"minItems": 1,
+							"uniqueItems": true,
+							"items": {
+								"type": "object",
+								"required": [
+									"Title",
+									"GivenName",
+									"Surname",
+									"StreetAddress",
+									"City",
+									"State",
+									"ZipCode",
+									"EmailAddress",
+									"TelephoneNumber",
+									"Occupation",
+									"Company",
+									"Domain"
+								],
+								"properties": {
+									"Title": {
+										"type": "string",
+										"minLength": 1
+									},
+									"GivenName": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Surname": {
+										"type": "string",
+										"minLength": 1
+									},
+									"StreetAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"City": {
+										"type": "string",
+										"minLength": 1
+									},
+									"State": {
+										"type": "string",
+										"minLength": 1
+									},
+									"ZipCode": {
+										"type": "string",
+										"minLength": 1
+									},
+									"EmailAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"TelephoneNumber": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Occupation": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Company": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Domain": {
+										"type": "string",
+										"minLength": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "columns",
+						"description": "the columns you want to get returned, seperated by comma's",
+						"type": "string",
+						"required": false
+					},
+					{
+						"in": "header",
+						"name": "Authorization",
+						"description": "Authorization received to access the API",
+						"required": true,
+						"type": "string"
+					}
+				]
+			},
+			"post": {
+				"description": "Insert a Contact",
+				"summary": "Insert Contacts",
+				"consumes": [
+					"multipart/form-data"
+				],
+				"externalDocs": {
+					"description": "Find out more",
+					"url": "https://support.bouwsoft.be/manual/api/Content/UseItGroup/API/ApiAlg.htm"
+				},
+				"operationId": "PostContacts",
+				"tags": [
+					"POST",
+					"Contacts"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"201": {
+						"description": "CREATED",
+						"schema": {
+							"type": "array",
+							"description": "",
+							"minItems": 1,
+							"uniqueItems": true,
+							"items": {
+								"type": "object",
+								"required": [
+									"Title",
+									"GivenName",
+									"Surname",
+									"StreetAddress",
+									"City",
+									"State",
+									"ZipCode",
+									"EmailAddress",
+									"TelephoneNumber",
+									"Occupation",
+									"Company",
+									"Domain"
+								],
+								"properties": {
+									"Title": {
+										"type": "string",
+										"minLength": 1
+									},
+									"GivenName": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Surname": {
+										"type": "string",
+										"minLength": 1
+									},
+									"StreetAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"City": {
+										"type": "string",
+										"minLength": 1
+									},
+									"State": {
+										"type": "string",
+										"minLength": 1
+									},
+									"ZipCode": {
+										"type": "string",
+										"minLength": 1
+									},
+									"EmailAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"TelephoneNumber": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Occupation": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Company": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Domain": {
+										"type": "string",
+										"minLength": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Authorization",
+						"description": "Authorization received to access the API",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "header",
+						"name": "Content-Type",
+						"description": "Content-Type for the POST, PUT or PATCH instruction (application/json; charset=utf-8)",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"in": "formData",
+						"name": "",
+						"description": "JSON Object with key value pairs, where the key is the fieldname of the corresponding value",
+						"type": "string",
+						"required": true
+					}
+				]
+			}
+		},
+		"/Contacts/{emailaddress}": {
+			"get": {
+				"description": "Get one specific Contact based on emailaddress",
+				"summary": "Get Contacts",
+				"externalDocs": {
+					"description": "Find out more",
+					"url": "https://support.bouwsoft.be/manual/api/Content/UseItGroup/API/ApiAlg.htm"
+				},
+				"operationId": "GetContact",
+				"tags": [
+					"GET",
+					"Contacts"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"description": "",
+							"minItems": 1,
+							"uniqueItems": true,
+							"items": {
+								"type": "object",
+								"required": [
+									"Title",
+									"GivenName",
+									"Surname",
+									"StreetAddress",
+									"City",
+									"State",
+									"ZipCode",
+									"EmailAddress",
+									"TelephoneNumber",
+									"Occupation",
+									"Company",
+									"Domain"
+								],
+								"properties": {
+									"Title": {
+										"type": "string",
+										"minLength": 1
+									},
+									"GivenName": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Surname": {
+										"type": "string",
+										"minLength": 1
+									},
+									"StreetAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"City": {
+										"type": "string",
+										"minLength": 1
+									},
+									"State": {
+										"type": "string",
+										"minLength": 1
+									},
+									"ZipCode": {
+										"type": "string",
+										"minLength": 1
+									},
+									"EmailAddress": {
+										"type": "string",
+										"minLength": 1
+									},
+									"TelephoneNumber": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Occupation": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Company": {
+										"type": "string",
+										"minLength": 1
+									},
+									"Domain": {
+										"type": "string",
+										"minLength": 1
+									}
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "columns",
+						"description": "the columns you want to get returned, seperated by comma's",
+						"type": "string",
+						"required": false
+					},
+					{
+						"in": "header",
+						"name": "Authorization",
+						"description": "Authorization received to access the API",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"in": "path",
+						"name": "emailaddress",
+						"description": "The emailaddress of the Contact you want to get.",
+						"required": true,
+						"type": "string"
+					}
+				]
+			}
+		}
+	}
+}
